@@ -1,0 +1,6 @@
+com\gestion\clientes\model\Cliente.class
+com\gestion\clientes\service\ClienteService.class
+com\gestion\clientes\repository\ClienteRepository.class
+com\gestion\clientes\GestionClientesBackendApplication.class
+com\gestion\clientes\controller\ClienteController.class
+com\gestion\clientes\exception\ResourceNotFoundException.class
