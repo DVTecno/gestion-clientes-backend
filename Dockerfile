@@ -1,15 +1,17 @@
-# Utiliza la imagen AdoptOpenJDK 17 con HotSpot en el sistema operativo Bionic
-FROM adoptopenjdk:17-jdk-hotspot-bionic
+FROM ubuntu:20.04
 
-# Información del mantenedor
-LABEL maintainer="dvtecno"
+LABEL maintainer=dvtecno
 
-# Establece el directorio de trabajo en /app
+# Actualizar e instalar paquetes necesarios
+RUN apt-get update \
+    && apt-get install -y openjdk-17-jdk \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
-# Copia el JAR al directorio de trabajo en el contenedor
 COPY target/gestion-clientes-backend-0.0.1-SNAPSHOT /app/gestion-cliente.jar
 
-# Define el comando de inicio para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "gestion-cliente.jar"]
+
+
 
