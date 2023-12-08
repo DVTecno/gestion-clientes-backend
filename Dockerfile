@@ -1,17 +1,18 @@
-FROM ubuntu:20.04
+# Utiliza la imagen AdoptOpenJDK 17 con HotSpot en el sistema operativo Bionic
+FROM adoptopenjdk:17-jdk-hotspot-bionic
 
-LABEL maintainer=dvtecno
+# Información del mantenedor
+MAINTAINER dvtecno
 
-# Actualizar e instalar paquetes necesarios
-RUN apt-get update \
-    && apt-get install -y openjdk-17-jdk \
-    && rm -rf /var/lib/apt/lists/*
-
+# Establece el directorio de trabajo en /app
 WORKDIR /app
 
-COPY target/gestion-clientes-backend-0.0.1-SNAPSHOT /app/gestion-cliente.jar
+# Copia el archivo JAR construido en el paso de compilación al contenedor
+COPY target/gestion-clientes-backend-0.0.1-SNAPSHOT.jar /app/gestion-cliente.jar
 
+# Define el comando que se ejecutará al iniciar el contenedor
 ENTRYPOINT ["java", "-jar", "gestion-cliente.jar"]
+
 
 
 
