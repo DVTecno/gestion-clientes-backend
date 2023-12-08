@@ -1,0 +1,4 @@
+FROM amazoncorrectto:17-alpine-jdk
+MAINTAINER MGB
+COPY
+ENTRYPOINT
