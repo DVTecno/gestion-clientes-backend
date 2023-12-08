@@ -2,7 +2,7 @@ FROM openjdk:17-alpine
 
 MAINTAINER DVTecno
 
-COPY target/gestion-clientes-backend-0.0.1-SNAPSHOT /app/gestion-cliente.jar
+COPY target/gestion-clientes-backend-0.0.1-SNAPSHOT  gestion-cliente.jar
 
 WORKDIR /app
 
