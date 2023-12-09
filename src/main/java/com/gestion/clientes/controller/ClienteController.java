@@ -15,8 +15,11 @@ import java.util.List;
 @RequestMapping("/api/v1")
 @CrossOrigin(origins = "https://gestion-clientes-frontend-dvtecno.vercel.app")
 public class ClienteController {
-    @Autowired
+    final
     ClienteService clienteService;
+    public ClienteController(ClienteService clienteService) {
+        this.clienteService = clienteService;
+    }
 
     //Consultar todos los clientes
     @GetMapping("/clientes")

@@ -3,7 +3,6 @@ package com.gestion.clientes.service;
 import com.gestion.clientes.exception.ResourceNotFoundException;
 import com.gestion.clientes.model.Cliente;
 import com.gestion.clientes.repository.ClienteRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,8 +10,11 @@ import java.util.List;
 
 @Service
 public class ClienteService {
-    @Autowired
+    final
     ClienteRepository clienteRepository;
+    public ClienteService(ClienteRepository clienteRepository) {
+        this.clienteRepository = clienteRepository;
+    }
 
     public List<Cliente> getAllClientes() {
 
@@ -38,7 +40,7 @@ public class ClienteService {
     public void deleteCliente(Long id) {
         Cliente cliente = clienteRepository.findById(id).orElse(null);
         if (cliente == null) {
-            throw new ResourceNotFoundException("Cliente no encontrado con ID: " + id);
+            throw new ResourceNotFoundException("Cliente no encontrado con ID: dia jueves informate" + id);
         }
         clienteRepository.deleteById(id);
     }
