@@ -5,6 +5,7 @@ import com.gestion.clientes.model.Cliente;
 import com.gestion.clientes.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -26,12 +27,14 @@ public class ClienteService {
         return cliente;
     }
 
+    @Transactional
     public Cliente saveCliente(Cliente cliente) {
         if (cliente.getNombre() == null || cliente.getApellido() == null || cliente.getEmail() == null) {
             throw new IllegalArgumentException("Los campos nombre, apellido y email son obligatorios.");
         }
         return clienteRepository.save(cliente);
     }
+    @Transactional
     public void deleteCliente(Long id) {
         Cliente cliente = clienteRepository.findById(id).orElse(null);
         if (cliente == null) {
@@ -40,7 +43,7 @@ public class ClienteService {
         clienteRepository.deleteById(id);
     }
 
-
+    @Transactional
     public Cliente updateCliente(Cliente cliente) {
         Cliente ClienteExistente = clienteRepository.findById(cliente.getId()).orElse(null);
         if (ClienteExistente == null) {
