@@ -3,7 +3,6 @@ package com.gestion.clientes.controller;
 import com.gestion.clientes.exception.ResourceNotFoundException;
 import com.gestion.clientes.model.Cliente;
 import com.gestion.clientes.service.ClienteService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = "https://gestion-clientes-frontend-dvtecno.vercel.app")
+@CrossOrigin(origins = "https://gestion-clientes-frontend.vercel.app/")
 public class ClienteController {
     final
     ClienteService clienteService;
